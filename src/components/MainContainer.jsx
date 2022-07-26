@@ -23,19 +23,52 @@ const MainContainer = () => {
     return () => clearInterval(interval);
   }, [arrayOfElements]);
 
-  const search = () => {
-    axios.get(`${API_URL}${searchInput}`).then((response) => {
-      console.log(response.data);
-    });
-  };
+  useEffect(() => {
+    const search = () => {
+      axios.get(`${API_URL}${searchInput}`).then((response) => {
+        // console.log(response.data.results[0].collectionName);
+        const arr = [];
+        const data = response.data.results;
+        // console.log(data);
+
+        // console.log(data[4].collectionName.indexOf("A Promised Land"));
+        for (let i = 0; i < data.length; i++) {
+          // console.log(data[i].collectionName.indexOf(searchInput));
+          if (data[i].collectionName.indexOf(searchInput)) {
+            arr.push(data[i].collectionName);
+            if (arr.length >= 5) {
+              break;
+            }
+          }
+        }
+        console.log(arr.length);
+
+        // for (let i = 0; i <= data.length; i++) {
+        //   if (data[i].indexOf(searchInput)) {
+        //     arr.push(data[i]);
+        //   }
+        //   if (arr.length >= 5) {
+        //     break;
+        //   }
+        // }
+        console.log(arr);
+      });
+    };
+    search();
+  }, [searchInput]);
 
   return (
     <div className="container">
       <div className="containerWrapper">
         <div className="contentWrapper">
           <div className="inputAndIconSearchWrapper">
-            <input placeholder="Search Band" className="searchInput"></input>
-            <FaSearch onClick={() => search()} />{" "}
+            <input
+              value={searchInput}
+              onChange={(e) => setSearchInput(e.target.value)}
+              placeholder="Search Band"
+              className="searchInput"
+            ></input>
+            <FaSearch />{" "}
           </div>
           <div className="containerOfTheElements">
             {arrayOfElements.map((element) => (
