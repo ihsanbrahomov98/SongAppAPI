@@ -1,0 +1,66 @@
+.container {
+  height: 90vh;
+  width: 95vw;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.containerWrapper {
+  min-height: 87vh;
+  min-width: 40vw;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  background: linear-gradient(
+    150deg,
+    #0f6784,
+    #006687,
+    #00628f,
+    #005d9b,
+    #0055a5,
+    #004baa,
+    #0042ab,
+    #10388d
+  );
+}
+.contentWrapper {
+  margin-top: auto;
+  margin-bottom: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+  min-height: 47vh;
+  min-width: 20vw;
+  background-color: orange;
+}
+.inputAndIconSearchWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+}
+.searchInput {
+  width: 10em;
+  height: 2em;
+
+  background-color: white;
+}
+.containerOfTheElements {
+  display: flex;
+  flex-direction: column;
+  width: 8em;
+  height: 2em;
+  align-items: center;
+  justify-content: start;
+}
+.element {
+  background-color: yellow;
+  width: 8em;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
