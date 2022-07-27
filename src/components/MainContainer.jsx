@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../styles/MainContainer.css";
-import { FaSearch } from "react-icons/fa";
+
 import axios from "axios";
 import { API_URL } from "./API_Url";
 
@@ -14,6 +14,8 @@ const MainContainer = () => {
     "D",
     "E",
   ]);
+  const [arrayOfElementsAfterInput, setArrayOfElementsAfterInput] =
+    useState("");
 
   // useState with initial input value, which is used for axios GET requests on line 34
 
@@ -39,6 +41,7 @@ const MainContainer = () => {
           // the reason of putting ${searchInput.length > 0 ? "." : ""} is the following: In the example URL(in the task),
           // we have https://itunes.apple.com/search?term=radiohead. There is dot after "term=radiohead", but the input in
           // the next image is just radiohead
+
           const arr = [];
           const data = response.data.results;
           for (let i = 0; i < data.length; i++) {
@@ -49,6 +52,12 @@ const MainContainer = () => {
           const uniqueArray = [...new Set(arr)];
           const sorted = uniqueArray.sort().slice(0, 5);
           setArrayOfElements(sorted);
+
+          if (arr.length === 0) {
+            setArrayOfElements(["A", "B", "C", "D", "E"]);
+          }
+          // The reason of putting if (arr.length === 0).... is in case of an invalid search. I couldn`t tell from the task if it was
+          // necessary or not, but i did it nonetheless. If its wrong deleted it, with or without it, the code will run.
         });
     };
     search();
@@ -60,15 +69,15 @@ const MainContainer = () => {
     <div className="container">
       <div className="containerWrapper">
         <div className="contentWrapper">
-          <div className="inputAndIconSearchWrapper">
+          <div className="inputContainer">
             <input
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
               placeholder="Search Band"
-              className="searchInput"
+              className="element input"
             ></input>
-            <FaSearch />{" "}
           </div>
+
           <div className="containerOfTheElements">
             {arrayOfElements.map((element) => (
               <div key={element} className="element">

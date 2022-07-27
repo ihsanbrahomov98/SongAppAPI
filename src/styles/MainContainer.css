@@ -1,6 +1,22 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+@media only screen and (max-width: 4060px) {
+  * {
+    font-size: 16px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  * {
+    font-size: 4px;
+  }
+}
+
 .container {
-  height: 90vh;
-  width: 95vw;
+  height: 100vh;
+  width: 100vw;
   justify-content: center;
   align-items: center;
   display: flex;
@@ -14,16 +30,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  background: linear-gradient(
-    150deg,
-    #0f6784,
-    #006687,
-    #00628f,
-    #005d9b,
-    #0055a5,
-    #004baa,
-    #0042ab,
-    #10388d
+  background-image: linear-gradient(
+    to right top,
+    #623a08,
+    #6a3805,
+    #733404,
+    #7c3005,
+    #852a09
   );
 }
 .contentWrapper {
@@ -32,35 +45,46 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: start;
+  justify-content: center;
   min-height: 47vh;
   min-width: 20vw;
-  background-color: orange;
-}
-.inputAndIconSearchWrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: start;
 }
 .searchInput {
-  width: 10em;
-  height: 2em;
+  width: 17.7em;
+  height: 2.5em;
 
   background-color: white;
 }
 .containerOfTheElements {
   display: flex;
   flex-direction: column;
-  width: 8em;
-  height: 2em;
+  width: 20em;
+  height: 20em;
   align-items: center;
-  justify-content: start;
+
+  justify-content: space-evenly;
 }
 .element {
-  background-color: yellow;
-  width: 8em;
+  background-color: #f0d04f;
+  width: 30em;
+  height: 5em;
+  font-size: 0.5em;
+
   align-items: center;
   justify-content: center;
   display: flex;
+  text-align: center;
+
+  border-radius: 15px;
+}
+.element:hover {
+  opacity: 0.5;
+  background-color: yellow;
+}
+.input {
+  background-color: white;
+}
+.input:hover {
+  background-color: white;
+  opacity: 1;
 }
