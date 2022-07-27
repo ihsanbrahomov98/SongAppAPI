@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../styles/MainContainer.css";
-
 import axios from "axios";
 import { API_URL } from "./API_Url";
 
@@ -14,10 +13,8 @@ const MainContainer = () => {
     "D",
     "E",
   ]);
-  const [arrayOfElementsAfterInput, setArrayOfElementsAfterInput] =
-    useState("");
 
-  // useState with initial input value, which is used for axios GET requests on line 34
+  // useState with initial input value, which is used for axios GET requests on line 33
 
   const [searchInput, setSearchInput] = useState("");
 
@@ -31,7 +28,7 @@ const MainContainer = () => {
     return () => clearInterval(interval);
   }, [arrayOfElements]);
 
-  // useEffect for making axios GET requests upon entering new data in the input on line 64, the data is stored in the useState searchInput
+  // useEffect for making axios GET requests upon entering new data in the input on line 70, the data is stored in the useState searchInput
 
   useEffect(() => {
     const search = () => {
